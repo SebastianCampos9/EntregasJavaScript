@@ -23,13 +23,13 @@ alert (texto + " "+ textoUno)
 //     alert("no es hola")
 // }
 
-let numero = Number(prompt("ingrese su numero"));
+// let numero = Number(prompt("ingrese su numero"));
 
-if(numero < 10){
-    alert("no esta entre 10 y 50");
-} else if(numero > 50){
-    alert("no esta entre 10 y 50");
-} else {
-    alert("esta dentro del 10 y 50");
-}
+// if(numero < 10){
+//     alert("no esta entre 10 y 50");
+// } else if(numero > 50){
+//     alert("no esta entre 10 y 50");
+// } else {
+//     alert("esta dentro del 10 y 50");
+// }
 
