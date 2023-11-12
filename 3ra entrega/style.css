@@ -1,0 +1,76 @@
+.rojo {
+    background-color: #78679c;
+  }
+  
+  .amarillo {
+    background-color: yellow;
+  }
+  
+  .verde {
+    background-color: green;
+    
+  }
+  
+  .azul {
+    background-color: blue;
+  }
+  
+  .blanco {
+    background-color: #FFFF;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+  }
+  
+  
+  .card {
+    width: 300px;
+    height: 260px; /* Ajusta el tamaño para hacerlas más cuadradas */
+    margin: 30px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    background-color: #ffffff; /* Color de fondo de las cards */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Escala la card al pasar el ratón sobre ella */
+  }
+
+  .card h2 {
+    margin-bottom: 10px;
+    color: #000000; /* Color de texto personalizado */
+  }
+  
+  .card p {
+    margin-bottom: 15px;
+    color: #0a0a0a; /* Otro color de texto personalizado */
+  }
+  
+  .card button {
+    margin: 10px;
+    background-color: #3498db; /* Color de fondo personalizado para el botón */
+    color: #fff; /* Color de texto personalizado para el botón */
+    padding: 8px 15px; /* Ajustar el espacio interno del botón */
+    border: none;
+    cursor: pointer;
+  }
+
+  .contenedor-titulo {
+    text-align: center;
+    padding: 20px; /* Espaciado opcional alrededor del título */
+  }
+  
+  .titulo {
+    color: #78679c; /* Color de texto personalizado */
+  }
+  
+  /* El resto de tus estilos .container y .card permanecen igual */
+  
