@@ -1,112 +1,137 @@
-.rojo {
-    background-color: #78679c;
-  }
-  
-  .amarillo {
-    background-color: yellow;
-  }
-  
-  .verde {
-    background-color: green;
-    
-  }
-  
-  .azul {
-    background-color: blue;
-  }
-  
-  .blanco {
-    background-color: #FFFF;
-  }
+/* Estilos generales */
 
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #f8f8f8;
-    padding: 20px;
-  }
-  
-  
-  .card {
-    width: 300px;
-    height: 260px; /* Ajusta el tamaño para hacerlas más cuadradas */
-    margin: 30px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
-    background-color: #ffffff; /* Color de fondo de las cards */
-    border-radius: 8px; /* Bordes redondeados */
-  }
-  
-  .card:hover {
-    transform: scale(1.05); /* Escala la card al pasar el ratón sobre ella */
-  }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+}
 
-  .card h2 {
-    margin-bottom: 10px;
-    color: #000000; /* Color de texto personalizado */
-  }
+/* Contenedor principal */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+
+/* Estilos de las cards */
+
+.card {
+  width: 300px;
+  height: 260px;
+  margin: 30px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.card p {
+  margin-bottom: 15px;
+  color: #0a0a0a;
+}
+
+.card button {
+  margin: 10px;
+  background-color: #3498db;
+  color: #fff;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
   
-  .card p {
-    margin-bottom: 15px;
-    color: #0a0a0a; /* Otro color de texto personalizado */
-  }
+}
+
+.card button:hover {
+  background-color: #45a049;
+}
+
+/* Contenedor del título */
+
+.contenedor-titulo {
+  text-align: center;
+  background-color: deepskyblue;
+  padding: 10px;
+}
+
+.titulo {
+  color: #2a2d8a;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Carrito de compras */
+
+#cart {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  max-width: 300px;
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 1000;
+}
+
+#cart-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+#cart-items li {
+  margin-bottom: 8px;
+}
+
+#cart-total {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Botones de filtro */
+
+#filtro-botones {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#filtro-botones button {
+  margin: 5px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #2a2d8a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#filtro-botones button:hover {
+  background-color: #45a049;
+}
+
+button.delete-button {
+  background-color: #ff5252; /* Color de fondo rojo */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 50%; /* Borde redondeado para formar un círculo */
+  width: 20px; /* Ancho del botón */
+  height: 20px; /* Altura del botón */
+  font-size: 12px; /* Tamaño del texto */
+  cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+  margin-right: 5px;
   
-  .card button {
-    margin: 10px;
-    background-color: #3498db; /* Color de fondo personalizado para el botón */
-    color: #fff; /* Color de texto personalizado para el botón */
-    padding: 8px 15px; /* Ajustar el espacio interno del botón */
-    border: none;
-    cursor: pointer;
-  }
-
-  .contenedor-titulo {
-    text-align: center;
-    padding: 20px; /* Espaciado opcional alrededor del título */
-  }
-  
-  .titulo {
-    color: #78679c; /* Color de texto personalizado */
-  }
-  
-  /* El resto de tus estilos .container y .card permanecen igual */
-
-
-  #cart {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    max-width: 300px;
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    z-index: 1000;
-  }
-
-  #cart-items {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  #cart-items li {
-    margin-bottom: 8px;
-  }
-
-  #cart-total {
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .card button {
-    background-color: #4caf50;
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+}
