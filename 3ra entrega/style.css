@@ -62,15 +62,20 @@ body {
 /* Contenedor del título */
 
 .contenedor-titulo {
+  background-image: url(https://revistacitylife.com/wp-content/uploads/2018/03/limpia-casa.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
-  background-color: deepskyblue;
   padding: 10px;
 }
 
-.titulo {
-  color: #2a2d8a;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+.contenedor-titulo h1 {
+  color: white;
+  -webkit-text-stroke: 1px black; /* Para navegadores basados en WebKit como Chrome y Safari */
+  text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3);
 }
+
 
 /* Carrito de compras */
 
@@ -82,8 +87,8 @@ body {
   padding: 15px;
   max-width: 300px;
   position: fixed;
-  top: 80px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   z-index: 1000;
 }
 
