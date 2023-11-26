@@ -26,7 +26,7 @@ fetch("./data.json")
     const productosJSON = JSON.stringify(productos);
     localStorage.setItem('productos', productosJSON);
 
-    // Llamada inicial para mostrar todos los productos
+    // Mostrar todos los productos
     mostrarTodosLosProductos();
   })
   .catch(error => {
@@ -46,7 +46,7 @@ let carrito = [];
 // Cargar carrito desde localStorage si existe
 if (localStorage.getItem('carrito')) {
   carrito = JSON.parse(localStorage.getItem('carrito'));
-  actualizarCarrito(); // Asegúrate de actualizar la interfaz después de cargar el carrito
+  actualizarCarrito(); // actualizar la interfaz después de cargar el carrito
 }
 
 
@@ -88,9 +88,8 @@ function completarCompra() {
       confirmButtonText: 'Sí, finalizar compra',
       cancelButtonText: 'Cancelar',
     }).then((result) => {
+      // si se confirma..
       if (result.isConfirmed) {
-        // Aquí puedes agregar lógica adicional para finalizar la compra
-        // Ejemplo: Mostrar un mensaje de éxito
         Swal.fire({
           icon: 'success',
           title: 'Compra Completada',
@@ -101,9 +100,9 @@ function completarCompra() {
         // Vaciar el carrito después de completar la compra
         vaciarCarrito();
 
-         // Mostrar un mensaje de éxito durante 3 segundos
+         // Mostrar un mensaje de éxito durante 2 segundos
          setTimeout(() => {
-          Swal.close(); // Cierra automáticamente el mensaje después de 3 segundos
+          Swal.close(); // Cierra automáticamente el mensaje después de 2 segundos
         }, 2000);
       }
     });
@@ -113,10 +112,10 @@ function completarCompra() {
 // Función para mostrar y ocultar el carrito
 function mostrarCarrito() {
     const cart = document.getElementById('cart');
-    cart.style.display = carrito.length > 0 ? 'block' : 'none'; // sintaxis avanzada.
+    cart.style.display = carrito.length > 0 ? 'block' : 'none'; // sintaxis avanzada
   }
 
-// Función para actualizar la interfaz del carrito
+// Función que actualiza la interfaz del carrito
 function actualizarCarrito() {
   const cartItemsContainer = document.getElementById('cart-items');
   cartItemsContainer.innerHTML = '';
@@ -125,6 +124,7 @@ function actualizarCarrito() {
   carrito.forEach((item) => {
     let li = document.createElement("li");
     li.textContent = `${item.nombre} - $${item.precio.toFixed(2)}`;
+
      // Agregar un botón para eliminar el producto
      let deleteButton = document.createElement("button");
      deleteButton.textContent = "x";
@@ -143,10 +143,10 @@ function actualizarCarrito() {
 
   localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualiza el localStorage
 
-  mostrarCarrito(); // Llama a esta función para mostrar u ocultar el carrito
+  mostrarCarrito(); // función para mostrar u ocultar el carrito
 }
 
-// Función para eliminar un producto del carrito
+// Función que elimina el producto del carrito
 function eliminarDelCarrito(id) {
     // Encontrar el índice del producto en el carrito
     const index = carrito.findIndex((item) => item.id === id);
@@ -173,7 +173,7 @@ function mostrarTodosLosProductos() {
     });
   }
 
-  // Función para verificar si un producto está en el carrito
+  // Función que verifica si un producto está en el carrito
 function estaEnCarrito(id) {
   return carrito.some((item) => item.id === id);
 }
@@ -207,7 +207,7 @@ function filtrarProductos(categoria) {
       });
     }  
 
-    // Función para crear y agregar botones de filtro
+    // Función que crea y agrega los botones de filtros
 function agregarBotonesFiltro() {
     const filtroBotonesContainer = document.getElementById('filtro-botones');
   
@@ -229,8 +229,8 @@ function agregarBotonesFiltro() {
     });
   }
   
-  // Llamada inicial para agregar los botones de filtro
+  // Agregar los botones de filtro
 agregarBotonesFiltro();
 
-// Llamada inicial para mostrar todos los productos
+// Mostrar todos los productos
 mostrarTodosLosProductos();
