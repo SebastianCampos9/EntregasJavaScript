@@ -95,10 +95,16 @@ function completarCompra() {
           icon: 'success',
           title: 'Compra Completada',
           text: 'Gracias por tu compra. ¡Vuelve pronto!',
+          showConfirmButton: false, 
         });
 
         // Vaciar el carrito después de completar la compra
         vaciarCarrito();
+
+         // Mostrar un mensaje de éxito durante 3 segundos
+         setTimeout(() => {
+          Swal.close(); // Cierra automáticamente el mensaje después de 3 segundos
+        }, 2000);
       }
     });
   }
@@ -107,7 +113,7 @@ function completarCompra() {
 // Función para mostrar y ocultar el carrito
 function mostrarCarrito() {
     const cart = document.getElementById('cart');
-    cart.style.display = carrito.length > 0 ? 'block' : 'none';
+    cart.style.display = carrito.length > 0 ? 'block' : 'none'; // sintaxis avanzada.
   }
 
 // Función para actualizar la interfaz del carrito
