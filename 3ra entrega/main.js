@@ -11,11 +11,28 @@ const productos = [{ id: 1, imagen: "https://bytquimica.com.ar/wp-content/upload
 { id: 11, imagen:"https://acdn.mitiendanube.com/stores/001/237/868/products/alcohol-en-gel-5-litros1-8741aca08ac7ba59fe16018454721348-640-0.png", nombre: "Alcohol en gel 5L", precio: 900, categoria:"5L" },
 { id: 12, imagen:"https://bioelectronsac.com/wp-content/uploads/2020/07/salud_alessi_alcohol_gel_1L_01.jpg", nombre: "Alcohol en gel 1L", precio: 200, categoria:"1L" },
 { id: 13, imagen:"https://quimicariocuarto.com.ar/wp-content/uploads/2017/07/ALCOHOL-EN-GEL-PORTA-500-500x501.jpg", nombre: "Alcohol en gel 500ml", precio: 100, categoria:"500ml" },
-{ id: 14, imagen:"https://http2.mlstatic.com/D_NQ_NP_987178-MLA47500995687_092021-O.webp", nombre: "Desodorante p/pisos", precio: 1500, categoria:"5L" },
+{ id: 14, imagen:"https://http2.mlstatic.com/D_NQ_NP_987178-MLA47500995687_092021-O.webp", nombre: "Desodorante p/pisos", precio: 1500, categoria:"5L" }
 ];
 
-const productosJSON = JSON.stringify(productos);
-localStorage.setItem('productos', productosJSON);
+
+
+// Reemplaza el bloque original de productos con una solicitud fetch
+fetch("./data.json")
+  .then(response => response.json())
+  .then(data => {
+    const productos = data; // Asigna los productos obtenidos a la variable productos
+
+    // Almacena los productos en el localStorage
+    const productosJSON = JSON.stringify(productos);
+    localStorage.setItem('productos', productosJSON);
+
+    // Llamada inicial para mostrar todos los productos
+    mostrarTodosLosProductos();
+  })
+  .catch(error => {
+    console.error('Error al obtener los productos:', error);
+  });
+
 
 /////////////////////////////// Contenedores/////////////////////////////////////////
 const productListContainer = document.getElementById('product-list');
@@ -25,6 +42,14 @@ const cartTotalElement = document.getElementById('cart-total');
 
 //////////////////////////// Manejo del carrito ////////////////////////////////////////////
 let carrito = [];
+
+// Cargar carrito desde localStorage si existe
+if (localStorage.getItem('carrito')) {
+  carrito = JSON.parse(localStorage.getItem('carrito'));
+  actualizarCarrito(); // Asegúrate de actualizar la interfaz después de cargar el carrito
+}
+
+
 
 // Función para vaciar el carrito
 function vaciarCarrito() {
@@ -104,9 +129,13 @@ function actualizarCarrito() {
 
     cartItemsContainer.appendChild(li);
     total += item.precio;
+
+    
   });
 
   cartTotalElement.textContent = total.toFixed(2);
+
+  localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualiza el localStorage
 
   mostrarCarrito(); // Llama a esta función para mostrar u ocultar el carrito
 }
@@ -123,6 +152,7 @@ function eliminarDelCarrito(id) {
         actualizarCarrito();
     }
 }
+
 
 ////////////////////////////// Interfaz de usuario ////////////////////////////////////////////////
 
